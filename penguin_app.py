@@ -67,3 +67,17 @@ def prediction(model, island, bill_length_mm, bill_depth_mm, flipper_length_mm, 
   		return "Chinstrap"
   	else:
   		return "Gentoo"
+    
+    
+    
+st.title("Penguin Species Prediction App")  
+
+s_len = st.slider("Bill Length (mm)", 32.1, 59.6)
+s_wid = st.slider("Bill Depth (mm)", 13.1, 21.5)
+p_len = st.slider("Flipper Length (mm)", 172.0, 231.0)
+p_wid = st.slider("Body Mass (g)", 2700.0, 6300.0)
+
+if st.button("Predict"):
+	species_type = prediction(s_len, s_wid, p_len, p_wid)
+	st.write("Species predicted:", species_type)
+	st.write("Accuracy score of this model is:", score)
